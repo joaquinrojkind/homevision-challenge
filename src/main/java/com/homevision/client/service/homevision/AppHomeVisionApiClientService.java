@@ -1,11 +1,8 @@
 package com.homevision.client.service.homevision;
 
-import com.homevision.client.api.homevision.vo.HouseVO;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
+import com.homevision.client.api.homevision.vo.HousesResponseVO;
 
 public interface AppHomeVisionApiClientService {
 
-    List<HouseVO> getHouses(Integer page, Integer perPage);
+    HousesResponseVO getHouses(Integer page, Integer perPage);
 }

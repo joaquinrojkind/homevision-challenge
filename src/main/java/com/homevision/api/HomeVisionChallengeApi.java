@@ -1,6 +1,6 @@
 package com.homevision.api;
 
-import com.homevision.api.dto.HousesResponse;
+import com.homevision.api.dto.HousesResponseDto;
 import com.homevision.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class HomeVisionChallengeApi {
     }
 
     @GetMapping("/houses")
-    public ResponseEntity<HousesResponse> getHouses() {
+    public ResponseEntity<HousesResponseDto> getHouses() {
         return ResponseEntity.ok(houseService.getHouses());
     }
 }

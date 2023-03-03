@@ -1,8 +1,8 @@
 package com.homevision.service;
 
-import com.homevision.api.dto.HousesResponse;
+import com.homevision.api.dto.HousesResponseDto;
 
 public interface HouseService {
 
-    HousesResponse getHouses();
+    HousesResponseDto getHouses();
 }

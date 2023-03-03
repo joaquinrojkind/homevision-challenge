@@ -1,34 +1,23 @@
 package com.homevision.client.service.homevision;
 
 import com.homevision.client.api.homevision.AppHomeVisionApiClient;
-import com.homevision.client.api.homevision.vo.HouseVO;
+import com.homevision.client.api.homevision.vo.HousesResponseVO;
+import com.homevision.client.util.resiliency.ResilientCallExecutor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import retrofit2.Call;
-import retrofit2.Response;
-
-import java.io.IOException;
-import java.util.List;
 
 @Component
 public class AppHomeVisionApiClientServiceImpl implements AppHomeVisionApiClientService {
 
+    @Autowired
     private AppHomeVisionApiClient appHomeVisionApiClient;
-
-    public AppHomeVisionApiClientServiceImpl(AppHomeVisionApiClient appHomeVisionApiClient) {
-        this.appHomeVisionApiClient = appHomeVisionApiClient;
-    }
+    @Autowired
+    private ResilientCallExecutor resilientCallExecutor;
 
     @Override
-    public List<HouseVO> getHouses(Integer page, Integer perPage) {
-        Call<List<HouseVO>> call = appHomeVisionApiClient.getHouses(page, perPage);
-        Response<List<HouseVO>> response;
-        List<HouseVO> houses;
-        try {
-            response = call.execute();
-            houses = response.body();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return houses;
+    public HousesResponseVO getHouses(Integer page, Integer perPage) {
+        Call<HousesResponseVO> call = appHomeVisionApiClient.getHouses(page, perPage);
+        return resilientCallExecutor.executeCall(call);
     }
 }

@@ -5,15 +5,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class HouseVO {
+public class HousesResponseVO {
 
-    private Long id;
-    private String address;
-    private String homeowner;
-    private Double price;
-    private String photoURL;
+    private List<HouseVO> houses;
 }
