@@ -15,7 +15,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 @Configuration
 public class RetrofitConfig {
 
-    @Value("${client.app-homevision-staging.base-url}")
+    @Value("${client.app-homevision-staging.baseUrl}")
     private String baseUrl;
 
     @Bean

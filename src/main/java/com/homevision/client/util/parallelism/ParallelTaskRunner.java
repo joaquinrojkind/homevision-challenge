@@ -1,6 +1,6 @@
-package com.homevision.client.util.parallel;
+package com.homevision.client.util.parallelism;
 
-import com.homevision.client.util.parallel.response.SupplyAllResponse;
+import com.homevision.client.util.parallelism.response.SupplyAllResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ import static java.util.stream.Collectors.toList;
 public class ParallelTaskRunner {
 	@Value("${client.globalTimeout}")
 	private long globalTimeoutMillis;
-	@Value("${client.max-thread-number}")
+	@Value("${client.maxThreadNumber}")
 	private int maxThreadNumber;
 
 	public <T> SupplyAllResponse<T> supplyAllAndGetExceptions(List<Supplier<T>> suppliers) {

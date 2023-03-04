@@ -1,9 +1,9 @@
 client:
   globalTimeout: 8000
-  max-thread-number: 10
+  maxThreadNumber: 10
   resiliency:
     maxRetries: 3
   app-homevision-staging:
-    base-url: http://app-homevision-staging.herokuapp.com/api_project/
-    page-count: 10
+    baseUrl: http://app-homevision-staging.herokuapp.com/api_project/
+    pageCount: 10
     size: 10

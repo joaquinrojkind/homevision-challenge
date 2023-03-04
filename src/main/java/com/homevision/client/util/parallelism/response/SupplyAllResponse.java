@@ -1,4 +1,4 @@
-package com.homevision.client.util.parallel.response;
+package com.homevision.client.util.parallelism.response;
 
 import lombok.Getter;
 import lombok.Setter;

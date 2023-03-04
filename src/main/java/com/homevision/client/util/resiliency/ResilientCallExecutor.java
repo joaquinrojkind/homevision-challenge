@@ -1,5 +1,6 @@
 package com.homevision.client.util.resiliency;
 
+import com.homevision.client.exception.ApiClientException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -25,9 +26,11 @@ public class ResilientCallExecutor {
 			if (response.isSuccessful()) {
 				return response.body();
 			}
-			throw new RuntimeException();
+			log.error("Error while trying to connect with url {}, http status is {}. Total retries attempted: {}", call.request().url(), response.code(), maxRetries);
+			throw new ApiClientException();
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			log.error("Internal error while trying to connect with url {}, exception: {}", call.request().url(), e);
+			throw new ApiClientException();
 		}
 	}
 }
