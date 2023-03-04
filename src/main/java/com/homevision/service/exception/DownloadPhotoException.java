@@ -1,2 +1,15 @@
-package com.homevision.api.exception;public class DownloadPhotoException {
+package com.homevision.service.exception;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class DownloadPhotoException extends RuntimeException {
+
+    private String photoUrl;
 }

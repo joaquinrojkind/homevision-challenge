@@ -1,4 +1,4 @@
-package com.homevision.client.util.parallelism;
+package com.homevision.client.util.concurrency;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ public class ParallelTaskRunner {
 	@Value("${client.concurrency.maxThreadNumber}")
 	private int maxThreadNumber;
 
-	public void consumeAll(List<Runnable> runnables) {
+	public void runAll(List<Runnable> runnables) {
 		Assert.notEmpty(runnables, "Must be at least one task to run");
 		ExecutorService executorService = getExecutorWithSize(runnables.size());
 
