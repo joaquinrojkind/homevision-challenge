@@ -5,5 +5,3 @@ client:
     maxRetries: 3
   app-homevision-staging:
     baseUrl: http://app-homevision-staging.herokuapp.com/api_project/
-    pageCount: 10
-    pageSize: 10

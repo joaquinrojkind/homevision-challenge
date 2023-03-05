@@ -26,11 +26,11 @@ import java.util.stream.Collectors;
 @Service
 public class HouseServiceImpl implements HouseService {
 
-    @Value("${client.app-homevision-staging.pageCount}")
-    private Integer pageCount;
-
-    @Value("${client.app-homevision-staging.pageSize}")
-    private Integer pageSize;
+    /**
+     * Page count and page size as per requirements
+     */
+    public static final Integer PAGE_COUNT = 10;
+    public static final Integer PAGE_SIZE = 10;
 
     @Autowired
     private AppHomeVisionApiClient appHomeVisionApiClient;
@@ -42,8 +42,8 @@ public class HouseServiceImpl implements HouseService {
     @Override
     public HousesResponseDto getHouses() {
         List<HouseDto> houses = new ArrayList<>();
-        for (int currentPage = 1; currentPage <= pageCount; currentPage++) {
-            Call<HousesResponseVO> call = appHomeVisionApiClient.getHouses(currentPage, pageSize);
+        for (int currentPage = 1; currentPage <= PAGE_COUNT; currentPage++) {
+            Call<HousesResponseVO> call = appHomeVisionApiClient.getHouses(currentPage, PAGE_SIZE);
             houses.addAll(
                 resilientCallExecutor.executeCall(call).getHouses().stream()
                             .map(this::toHouseDto)
