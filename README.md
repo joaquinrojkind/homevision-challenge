@@ -24,16 +24,16 @@ Call the following endpoint using Postman or similar client in order to trigger 
 
 ```GET http://localhost:8080/homevision-challenge/houses```
 
+## API's response
+
+The API will return all the requested houses and their details in json format
+
 ## Photo downloads
 
 After the request has been processed successfully you can find all the downloaded photo files in the following directory within the project.
 Remove the ```photos``` directory before calling the API again.
 
 ```src/main/resources/photos```
-
-## API's response
-
-The API will return all the requested houses and their details in json format
 
 ## Unit Tests
 
