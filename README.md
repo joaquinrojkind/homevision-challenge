@@ -26,7 +26,8 @@ Call the following endpoint using Postman or similar client in order to trigger 
 
 ## Photo downloads
 
-After the request has been processed successfully you can find all the downloaded photo files in the following directory within the project
+After the request has been processed successfully you can find all the downloaded photo files in the following directory within the project.
+Remove the ```photos``` directory before calling the API again.
 
 ```src/main/resources/photos```
 
