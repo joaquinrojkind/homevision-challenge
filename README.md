@@ -2,10 +2,6 @@
 
 ## Github project
 
-Github project url
-
-```https://github.com/joaquinrojkind/homevision-challenge```
-
 Clone project locally
 
 ## Build and Run app from terminal
