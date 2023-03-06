@@ -6,17 +6,28 @@ Clone project locally
 
 ## Build and Run app from terminal
 
-Install Maven build tool in MacOS
+Install Maven build tool in MacOS if not already installed. 
 
 ```brew install maven```
 
-Build project
+Build project from project's root directory.
+This will also run the unit tests.
+
 
 ```mvn clean install```
 
-Run app
+Run app from project's root directory
 
 ```mvn spring-boot:run```
+
+## Build and Run app from IDE
+
+You can open project in an IDE such as IntelliJ:
+* Update maven project (right-hand maven bar menu, click on circular arrows)
+* Clean and install project (right-hand maven bar menu, expand project name and expand Lifecycle item, click on ```clean``` first then on ```install```) 
+* Run following class (right click on class -> Run/Debug)
+
+```src/main/java/com/homevision/HomevisionChallengeApplication.java```
 
 ## Invoke app's API
 
