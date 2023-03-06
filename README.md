@@ -1,11 +1,47 @@
 # homevision-challenge
 
-The project's requirements state that the first 10 pages of the houses API must be requested, but there's
-         no specification as to how this needs to work. For standard pagination the client of our API would indicate
-         a page number and page size and the backend would invoke the houses API accordingly passing the given params.
-         So in order to get the first 10 pages with size 10 the client would make 10 calls to our API.
-         
-For the sake of the exercise and to make the code a bit more interesting I decided that our new API endpoint
-         does not take any parameter and for a single call the backend always requests 10 pages with size 10 to the
-         houses API and then processes the bulk altogether. Since I built a small REST application instead of a plain script
-         this approach does not necessarily make sense in a real world scenario but should fit the project's requirements.
+## Github project
+
+Github project url
+
+```https://github.com/joaquinrojkind/homevision-challenge```
+
+Clone project locally
+
+## Build and Run app from terminal
+
+Install Maven build tool in MacOS
+
+```brew install maven```
+
+Build project
+
+```mvn clean install```
+
+Run app
+
+```mvn spring-boot:run```
+
+## Invoke app's API
+
+Call the following endpoint using Postman or similar client in order to trigger the integration
+
+```GET http://localhost:8080/homevision-challenge/houses```
+
+## Photo downloads
+
+After the request has been processed successfully you can find all the downloaded photo files in the following directory within the project
+
+```src/main/resources/photos```
+
+## API's response
+
+The API will return all the requested houses and their details in json format
+
+## Unit Tests
+
+The main service class ```HouseServiceImpl``` has been unit tested through the following test class
+
+```src/test/java/com/homevision/service/HouseServiceImplTest.java```
+
+More unit test coverage should be added. Some good candidate classes are ```ResilientCallExecutor``` and ```ParallelTaskRunner```
